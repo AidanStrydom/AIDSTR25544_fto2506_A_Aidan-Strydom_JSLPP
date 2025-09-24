@@ -29,6 +29,14 @@ export function setupNewTaskModalHandler() {
   });
 }
 
+const toggleBtn = document.getElementById('modeToggle');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+    }      
+
 export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");
   document.getElementById("task-title").value = task.title;
