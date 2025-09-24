@@ -85,6 +85,24 @@ h4 {
   overflow: hidden; /* Prevents overflowed text/icons from showing */
 }
 
+.hide-sidebar-btn {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  /* gap: 10px; Space between icon and text */
+  background-color: var(--primary-btn-color);
+  color: #fff;
+  border: none;
+  border-radius: 0 100px 100px 0; /* Pill shape only on right side */
+  height: 48px;
+  width: 276px;
+  padding: 28px 12px 28px 50px;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  cursor: pointer;
+  overflow: hidden; /* Prevents overflowed text/icons from showing */
+}
+
 /* ===============
    Main Layout
 ================ */
