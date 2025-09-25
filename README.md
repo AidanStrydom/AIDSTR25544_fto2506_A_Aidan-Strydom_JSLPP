@@ -94,3 +94,7 @@ A fully functional Kanban app that:
 - Has a responsive, mobile-friendly sidebar with a theme toggle switch.
 - App deployed to **Netlify** with a custom, readable URL.
 - Uses modular, well-documented code that is easy to maintain and scale.
+
+take from api if local storage is empty
+value pair to add/push
+async for the loading stuff
