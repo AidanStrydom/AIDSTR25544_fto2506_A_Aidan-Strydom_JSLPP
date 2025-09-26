@@ -18,7 +18,7 @@
 /* ================
    Base Elements
 ================ */
-body {
+body.light {
   font-family: "Plus Jakarta Sans", sans-serif;
   display: flex; /* Allow layout to span horizontally */
   flex-direction: row;
@@ -29,6 +29,9 @@ body {
   font-size: 1rem; /* Base font size for rem scaling */
 }
 
+body.dark {
+  background-color: #000112;
+}
 /* Body dark vs light layout here? */
 
 /* ================

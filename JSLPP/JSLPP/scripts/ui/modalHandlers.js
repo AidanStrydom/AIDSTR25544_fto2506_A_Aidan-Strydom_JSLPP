@@ -29,7 +29,7 @@ export function setupNewTaskModalHandler() {
   });
 }
 
-const toggleBtn = document.getElementById('switch');
+const toggleBtn = document.getElementById('theme-toggle-btn');
     const body = document.body;
 
     toggleBtn.addEventListener('click', () => {

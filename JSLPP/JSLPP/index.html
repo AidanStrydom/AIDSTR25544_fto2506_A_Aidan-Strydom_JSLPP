@@ -18,7 +18,7 @@
     <title>Kanban Task Management</title>
   </head>
 
-  <body>
+  <body class="light">
     <!-- Navigation Sidebar: Contains the logo, navigation links for boards, and theme toggle. -->
     <nav class="side-bar" id="side-bar-div">
       <div id="side-logo-div">
@@ -36,7 +36,7 @@
           id="light-theme-icon"
         />
         <label class="switch">
-          <input type="checkbox" id="theme-toggle-checkbox" />
+          <input type="checkbox" id="theme-toggle-btn" />
           <span class="slider round"></span>
         </label>
         <img
@@ -108,13 +108,16 @@
     </div>
     <!-- Modal: Displays each tasks details when the task is clicked -->
     <dialog id="task-modal"> 
-      <form method="dialog" id="task-form">
+      <form class="task-form" id="task-form">
         <div class="modal-header">
           <h3>Task</h3>
           <button type="button" class="close-btn" id="close-modal-btn">
             &times;
           </button>
         </div>
+
+        <!-- Hidden id field -->
+        <p id="task-id" style="display: none;" name="id">0</p>
 
         <label for="task-title">Title</label>
         <input type="text" id="task-title" name="title" required />
@@ -128,12 +131,16 @@
           <option value="doing">doing</option>
           <option value="done">done</option>
         </select>
+        <div class="button-group">
+          <input type="submit" class="submit-btn" id="save-task-btn" value="Save Task" />
+          <button type="button" class="submit-btn" id="delete-task-btn">Delete Task</button>
+        </div>
       </form>
     </dialog> 
     <!-- New Task Modal: Form for adding a new task. -->
 
     <dialog class="modal-overlay">
-      <form class="modal-window" id="new-task-modal-window">
+       <form class="overlay-form" id="new-task-modal-window">
         <div class="modal-header">
           <h3 class="modal-title">Add New Task</h3>
           <span class="close-btn" id="cancel-add-btn">&times;</span>
@@ -193,14 +200,6 @@
             <option value="medium">medium</option>
             <option value="high">high</option>
           </select>
-        </div>
-        <div class="button-group">
-          <input
-            type="submit"
-            class="submit-btn"
-            id="create-task-btn"
-            value="Create Task"
-          />
         </div>
         <div class="button-group">
           <input
