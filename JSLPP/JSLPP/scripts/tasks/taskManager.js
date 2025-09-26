@@ -29,3 +29,31 @@ export function addNewTask() {
   resetForm();
   overlay.close();
 }
+
+export function updateExistingTask() {
+  const taskId = parseInt(document.getElementById("task-id").textContent);
+  const title = document.getElementById("task-title").value.trim();
+  const description = document.getElementById("task-desc").value.trim();
+  const status = document.getElementById("task-status").value;
+  const dialog = document.querySelector("task-modal");
+
+  if (!title) return;
+
+  const tasks = loadTasksFromStorage();
+  const updatedTask = {
+    id: taskId,
+    title,
+    description,
+    status,
+  };
+  const taskIndex = tasks.findIndex(t => t.id === taskId);
+  if (taskIndex !== -1) {
+    tasks[taskIndex] = updatedTask; // Update existing task
+  }
+
+  saveTasksToStorage(tasks);
+
+  clearExistingTasks();
+  renderTasks(tasks);
+  // dialog.close();
+}
