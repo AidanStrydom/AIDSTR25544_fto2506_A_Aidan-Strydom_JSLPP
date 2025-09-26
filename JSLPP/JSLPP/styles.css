@@ -29,6 +29,8 @@ body {
   font-size: 1rem; /* Base font size for rem scaling */
 }
 
+/* Body dark vs light layout here? */
+
 /* ================
    Sidebar Layout
 ================ */
@@ -99,17 +101,19 @@ h4 {
   background-color: #f4f7fd;
 }
 
-.hide-sidebar-btn {
+#hide-sidebar-btn {
   font-family: inherit;
   display: flex;
   align-items: center;
-  /* gap: 10px; Space between icon and text */
-  background-color: var(--primary-btn-color);
-  color: #fff;
+  /* justify-content: space-around; */
+  gap: 10px; 
+  background-color: #f4f7fd;
+  color: #635fc7;
   border: none;
   border-radius: 0 100px 100px 0; /* Pill shape only on right side */
   height: 48px;
   width: 276px;
+  margin-bottom: 20px;
   padding: 28px 12px 28px 50px;
   font-size: 0.9375rem;
   font-weight: bold;
