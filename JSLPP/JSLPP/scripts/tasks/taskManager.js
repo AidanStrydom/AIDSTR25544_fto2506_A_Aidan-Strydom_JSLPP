@@ -1,5 +1,5 @@
 import {
-  loadTasksFromStorage,
+  pullFromStorage,
   saveTasksToStorage,
 } from "../utils/localStorage.js";
 import { clearExistingTasks, renderTasks } from "../ui/render.js";
@@ -9,22 +9,23 @@ export function addNewTask() {
   const title = document.getElementById("title-input").value.trim();
   const description = document.getElementById("desc-input").value.trim();
   const status = document.getElementById("select-status").value;
-  const priority = document.getElementById("modal-select-priority").value;
+  const priority = document.getElementById("select-priority").value;
   const overlay = document.querySelector(".modal-overlay");
 
   if (!title) return;
 
-  const tasks = loadTasksFromStorage();
+  const Tasks = pullFromStorage();
   const newTask = {
     id: tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1,
-    title,
-    description,
-    status,
+    title: title,
+    description: description,
+    status: status,
     priority: priority,
   };
 
-  const updatedTasks = [...tasks, newTask];
-  saveTasksToStorage(updatedTasks);
+  tasks.push(newTask);
+  // const updatedTasks = [...tasks, newTask];
+  saveTasksToStorage(tasks);
 
   clearExistingTasks();
   renderTasks(updatedTasks);
@@ -41,12 +42,13 @@ export function updateExistingTask() {
 
   if (!title) return;
 
-  const tasks = loadTasksFromStorage();
+  const tasks = pullFromStorage();
   const updatedTask = {
     id: taskId,
-    title,
-    description,
-    status,
+    title: title,
+    description: description,
+    status: status,
+    priority: 'low', // Default priority; adjust as needed
   };
   const taskIndex = tasks.findIndex(t => t.id === taskId);
   if (taskIndex !== -1) {

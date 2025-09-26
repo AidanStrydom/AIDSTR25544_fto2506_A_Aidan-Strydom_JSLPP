@@ -29,11 +29,130 @@ body.light {
   font-size: 1rem; /* Base font size for rem scaling */
 }
 
-body.dark {
-  background-color: #000112;
-}
-/* Body dark vs light layout here? */
+/* ========================
+   Dark Mode Fix
+======================== */
 
+/* Root variables for dark theme */
+body.dark {
+  --primary-color: #2b2c37;        /* Cards, modals, overlays */
+  --secondary-color: #20212c;      /* Body background */
+  --primary-font-color: #ffffff;   /* Main text */
+  --secondary-font-color: #828fa3; /* Secondary text */
+  --primary-btn-color: #635fc7;    /* Buttons */
+  --primary-box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Card shadow */
+}
+
+/* Body */
+body.dark {
+  background-color: var(--secondary-color);
+  color: var(--primary-font-color);
+}
+
+/* Headings */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6 {
+  color: var(--primary-font-color);
+}
+
+/* Sidebar */
+body.dark .side-bar {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+  border-right: 1px solid #333;
+}
+
+/* Sidebar buttons and headings */
+body.dark h4,
+body.dark .board-btn,
+body.dark #headline-sidepanel,
+body.dark #hide-sidebar-btn {
+  color: var(--primary-font-color);
+}
+
+/* Task Cards */
+body.dark .task-div {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+  box-shadow: var(--primary-box-shadow);
+  border: 1px solid #333;
+  display: flex;          /* Ensure flex layout stays */
+  align-items: center;    /* Align content vertically */
+  flex-shrink: 0;         /* Prevent shrinking */
+}
+
+/* Make sure all text inside task cards inherits white */
+body.dark .task-div * {
+  color: inherit;
+}
+
+/* Columns */
+body.dark .column-div,
+body.dark .tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Column headers */
+body.dark .columnHeader {
+  color: var(--secondary-font-color);
+  display: block;
+}
+
+/* Header */
+body.dark header {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Modals */
+body.dark #task-modal,
+body.dark .overlay-form {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+  box-shadow: var(--primary-box-shadow);
+  display: flex;          /* Keep flex layout */
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Inputs / Textareas / Selects */
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: var(--primary-color);
+  color: var(--primary-font-color);
+  border: 1px solid #555;
+}
+
+/* Placeholder text for inputs */
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #aaaaaa;
+}
+
+/* Buttons */
+body.dark .submit-btn,
+body.dark #add-new-task-btn,
+body.dark .board-btn,
+body.dark #hide-sidebar-btn {
+  color: #ffffff;
+  background-color: var(--primary-btn-color);
+}
+
+/* Status dots */
+body.dark #todo-dot { background-color: #49c4e5; }
+body.dark #doing-dot { background-color: #8471f2; }
+body.dark #done-dot { background-color: #219c90; }
 /* ================
    Sidebar Layout
 ================ */
@@ -134,6 +253,7 @@ h4 {
 
 /* Hide default HTML checkbox */
 .switch input {
+  position: absolute;
   opacity: 0;
   width: 0;
   height: 0;

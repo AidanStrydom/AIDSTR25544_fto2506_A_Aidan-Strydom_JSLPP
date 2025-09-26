@@ -1,15 +1,23 @@
 /**
+ * Saves the given task array to localStorage.
+ * @param {Array<Object>} tasks
+ */
+export function saveTasksToStorage(tasks) {
+  console.log("Saving tasks to storage:", tasks);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// import { initialTasks } from "../../initialData.js";
+
+/**
  * Loads tasks from localStorage or initializes with initialTasks.
  * @returns {Array<Object>} The array of tasks.
  */
 export async function loadTasksFromStorage() {
-  const stored = localStorage.getItem("tasks");
+
+  const stored = pullFromStorage();
   if (stored) {
-    try {
-      return JSON.parse(stored);
-    } catch (err) {
-      console.error("Error parsing tasks from localStorage:", err);
-    }
+    return stored
   }
 
   // If no tasks in storage, initialize with initialTasks from API
@@ -17,13 +25,31 @@ export async function loadTasksFromStorage() {
     const response = await fetch('https://jsl-kanban-api.vercel.app/');
     const data = await response.json();
     localStorage.setItem("tasks", JSON.stringify(data));
-    console.log('Initial tasks fetched from API:', data);
-    return data;
+
+    priorityTasks = pullFromStorage(); // Ensure priority field is added and sorted
+    return priorityTasks;
   } catch (error) {
     console.error('Error fetching initial tasks from API:', error);
     return [];
   }
+}
 
+export function pullFromStorage() {
+  const priorityOrder = { high: 1, medium: 2, low: 3 };
+  const stored = localStorage.getItem("tasks");
+  if (stored) {
+    try {
+      // Default to 'low' if priority is missing
+      const priorityTasks = JSON.parse(stored)
+        .map(task => ({ ...task, priority: task.priority || 'low' }))
+        .sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
+
+      localStorage.setItem("tasks", JSON.stringify(priorityTasks)); // Update storage with priority field
+      return priorityTasks;
+    } catch (err) {
+      console.error("Error retrieving tasks from localStorage:", err);
+    }
+  }
 }
 
 /**
