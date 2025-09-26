@@ -29,28 +29,28 @@ export function setupNewTaskModalHandler() {
   });
 }
 
-const toggleBtn = document.getElementById('modeToggle');
-    const body = document.body;
+// const toggleBtn = document.getElementById('modeToggle');
+//     const body = document.body;
 
-    toggleBtn.addEventListener('click', () => {
-      body.classList.toggle('dark');
-      body.classList.toggle('light');
+//     toggleBtn.addEventListener('click', () => {
+//       body.classList.toggle('dark');
+//       body.classList.toggle('light');
     
-      if (body.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
-    }); 
+//       if (body.classList.contains('dark')) {
+//         localStorage.setItem('theme', 'dark');
+//       } else {
+//         localStorage.setItem('theme', 'light');
+//       }
+//     }); 
 
-    // On page load, check saved preference
-    window.onload = () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        body.classList.remove('light', 'dark');
-        body.classList.add(savedTheme);
-      }
-  };
+//     // On page load, check saved preference
+//     window.onload = () => {
+//       const savedTheme = localStorage.getItem('theme');
+//       if (savedTheme) {
+//         body.classList.remove('light', 'dark');
+//         body.classList.add(savedTheme);
+//       }
+//   };
 
 export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");

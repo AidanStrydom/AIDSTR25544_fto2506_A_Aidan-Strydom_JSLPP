@@ -31,6 +31,42 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 - **Deploy the Kanban app to Netlify**, following the process of uploading your project and setting a custom deployment link.
 - Test the deployed app to ensure that all features, including task creation, editing, local storage, and sorting, work as expected in a live environment.
 
+
+
+
+
+
+
+
+
+
+take from api if local storage is empty
+value pair to add/push
+async for the loading stuff
+
+## Overview
+
+This is my Khanban board, made with HTML, vanilla CSS and JavaScript. The objectives of this website are to showcase my ability to create functional, responsive and clean and maintanaible code. Present in the application are a sidebar, heading area and task area. Tasks are displayed in the task area under the corresponding column, todo, doing or done. When a task is clicked on it will display details about it in a modal "pop-up", and the details are editable. There is also an add task button that allows more tasks to be added, and then sorted into the correct column. Buttons are also present in the sidebar section, aloowing the user to change the board between light and dark mode, and to close the sidebar. There is also responsive design so that when the window size for the page changes between desktop and mobile view it displays accordingly. Initial task data is taken from a web API, and there is a loading display and error to load message when loading fails. Information is stored on local storage so that on page refresh the previous entered information is kept.
+
+## Technologies
+
+The application is made to match a Figma design, with HTML styled by vanilla CSS in a seperate file, and is then given functionality with JavaScript. The JavaScript files are in multiple seperate files, split based on their specific function. 
+
+## Code Readability and Maintainability
+
+- JSDoc comments as well as comments in HTML and CSS are added to provide a roadmap to understand the code more easily at a glance, without needing to decode the entire project to make sense of it.
+- Code is seperated into seperate files with specific purposes, allowing for easier management of specific aspects.
+
+## Expected Outcome
+
+A fully functional Kanban app that:
+
+- Dynamically fetches and displays tasks.
+- Supports task editing, deletion, and persistent storage through local storage.
+- Has a responsive, mobile-friendly sidebar with a theme toggle switch.
+- App deployed to **Netlify** with a custom, readable URL.
+- Uses modular, well-documented code that is easy to maintain and scale.
+
 ### Initial Data Fetching & Loading State
 
 - **Fetch tasks dynamically** from an API: https://jsl-kanban-api.vercel.app/
@@ -61,40 +97,3 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 - On mobile, the sidebar should function as a **menu** accessible from the top of the screen.
 - Include the **theme toggle** switch in the mobile menu and ensure all features match the desktop sidebar, as shown in the Figma design.
 - Ensure that the mobile menu is **closable**, allowing users to dismiss it for an unobstructed view of the tasks.
-
-### Theme Toggle (Dark/Light Mode)
-
-- Include a **theme toggle switch** to allow users to switch between dark mode and light mode.
-- The toggle should be functional in both the **desktop sidebar** and the **mobile menu** for consistent theme switching across devices.
-- Ensure all elements of the **Kanban board** are styled appropriately in dark mode, ensuring good contrast and readability.
-
-### Stretch Goal: Adding Priority (Optional)
-
-Enhance your task management application by introducing a **priority system**. Users should be able to select a priority level—**High, Medium, or Low**—when creating or editing tasks. The priority should be:
-
-- **Visually displayed** on each task card as shown on the Figma design to clearly communicate urgency.
-- **Saved to local storage** to ensure persistence across page reloads.
-- **Editable** so users can adjust a task's importance as needed.
-- **Reflected immediately** on the UI upon changes.
-- **Sorted automatically** within each status column by priority (High → Medium → Low), with **High-priority tasks appearing at the top**.
-- **Persistently ordered**, maintaining correct priority display after refreshing the page.
-
-## Code Quality & Maintainability
-
-- **Break the code into separate modules** with clear responsibilities (e.g., local storage handling, task rendering, modal management) to improve maintainability and scalability.
-- Use **descriptive, meaningful variable and function names** to make the code easy to understand.
-- **Document every major function and module** using **JSDoc comments** to explain the purpose, parameters, and return values of each part of the code.
-
-## Expected Outcome
-
-A fully functional Kanban app that:
-
-- Dynamically fetches and displays tasks.
-- Supports task editing, deletion, and persistent storage through local storage.
-- Has a responsive, mobile-friendly sidebar with a theme toggle switch.
-- App deployed to **Netlify** with a custom, readable URL.
-- Uses modular, well-documented code that is easy to maintain and scale.
-
-take from api if local storage is empty
-value pair to add/push
-async for the loading stuff
