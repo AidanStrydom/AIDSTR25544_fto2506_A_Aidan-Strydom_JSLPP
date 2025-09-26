@@ -73,6 +73,13 @@ export function setupThemeToggleHandler() {
   };
 }
 
+export function hideSidebar() {
+  const sidebar = document.getElementById("hide-sidebar-btn");
+  sidebar.addEventListener("click", () => {
+   document.getElementById("side-bar-div").style.display = "none"; 
+  });
+}
+
 export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");
   document.getElementById("task-id").textContent = task.id;

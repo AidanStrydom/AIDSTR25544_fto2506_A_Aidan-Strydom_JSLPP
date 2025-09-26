@@ -1,6 +1,7 @@
 import { loadTasksFromStorage } from "./utils/localStorage.js";
 import { clearExistingTasks, renderTasks } from "./ui/render.js";
 import {
+  hideSidebar,
   setupEditModalHandler,
   setupNewTaskModalHandler,
   setupThemeToggleHandler,
@@ -13,6 +14,7 @@ function initTaskBoard() {
     setupEditModalHandler();
     setupNewTaskModalHandler();
     setupThemeToggleHandler();
+    hideSidebar();
   });
 }
 
