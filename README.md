@@ -56,3 +56,7 @@ A fully functional Kanban app that:
 ## Loom
 
 https://www.loom.com/share/030c96350aca4c21ad57b0349683d786?sid=5e630eb1-eeae-4a1b-bdf7-4d4456297585
+
+## Netlify
+
+https://app.netlify.com/teams/aidanstrydom/projects
