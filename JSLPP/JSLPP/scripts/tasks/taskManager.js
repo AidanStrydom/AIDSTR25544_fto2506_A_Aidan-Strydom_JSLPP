@@ -62,3 +62,15 @@ export function updateExistingTask() {
   renderTasks(updatedTasks);
   // dialog.close();
 }
+
+export function deleteTask() {
+  var reply = confirm("Are you sure you want to delete this task?");
+  if (reply) {
+    const taskId = parseInt(document.getElementById("task-id").textContent);
+    var tasks = pullFromStorage();
+    var remainingTasks = tasks.filter(t => t.id !== taskId);
+    saveTasksToStorage(remainingTasks);
+    clearExistingTasks();
+    renderTasks(remainingTasks);
+  } 
+}

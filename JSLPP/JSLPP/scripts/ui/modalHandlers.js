@@ -1,10 +1,17 @@
-import { addNewTask, updateExistingTask } from "../tasks/taskManager.js";
+import { addNewTask, updateExistingTask, deleteTask } from "../tasks/taskManager.js";
 
 export function setupEditModalHandler() {
   const modal = document.getElementById("task-modal");
   const form = document.querySelector(".task-form");
   const closeBtn = document.getElementById("close-modal-btn");
   closeBtn.addEventListener("click", () => modal.close());
+
+  const deleteBtn = document.getElementById("delete-task-btn");
+  deleteBtn.addEventListener("click", () => { 
+    deleteTask(); 
+    modal.close(); 
+  });
+
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
