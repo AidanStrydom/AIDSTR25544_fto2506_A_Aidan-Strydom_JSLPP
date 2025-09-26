@@ -1,10 +1,8 @@
-import { initialTasks } from "../../initialData.js";
-
 /**
  * Loads tasks from localStorage or initializes with initialTasks.
  * @returns {Array<Object>} The array of tasks.
  */
-export function loadTasksFromStorage() {
+export async function loadTasksFromStorage() {
   const stored = localStorage.getItem("tasks");
   if (stored) {
     try {
@@ -14,9 +12,18 @@ export function loadTasksFromStorage() {
     }
   }
 
-  // If no tasks in storage, initialize with initialTasks
-  localStorage.setItem("tasks", JSON.stringify(initialTasks));
-  return initialTasks;
+  // If no tasks in storage, initialize with initialTasks from API
+  try {
+    const response = await fetch('https://jsl-kanban-api.vercel.app/');
+    const data = await response.json();
+    localStorage.setItem("tasks", JSON.stringify(data));
+    console.log('Initial tasks fetched from API:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching initial tasks from API:', error);
+    return [];
+  }
+
 }
 
 /**
@@ -24,7 +31,7 @@ export function loadTasksFromStorage() {
  * @param {Array<Object>} tasks
  */
 export function saveTasksToStorage(tasks) {
+  console.log("Saving tasks to storage:", tasks);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
-
 

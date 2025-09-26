@@ -1,16 +1,19 @@
 import { loadTasksFromStorage } from "./utils/localStorage.js";
 import { clearExistingTasks, renderTasks } from "./ui/render.js";
 import {
-  setupModalCloseHandler,
+  setupEditModalHandler,
   setupNewTaskModalHandler,
+  setupThemeToggleHandler,
 } from "./ui/modalHandlers.js";
 
 function initTaskBoard() {
-  const tasks = loadTasksFromStorage();
-  clearExistingTasks();
-  renderTasks(tasks);
-  setupModalCloseHandler();
-  setupNewTaskModalHandler();
+  loadTasksFromStorage().then(tasks => {
+    clearExistingTasks();
+    renderTasks(tasks);
+    setupEditModalHandler();
+    setupNewTaskModalHandler();
+    setupThemeToggleHandler();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", initTaskBoard);
