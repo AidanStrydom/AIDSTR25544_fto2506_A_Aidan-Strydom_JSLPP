@@ -15,6 +15,10 @@
   --sidebar-width: 300px; /* Sidebar fixed width */
 }
 
+html {
+  overflow-y: scroll; /* Always reserve vertical scrollbar */
+}
+
 /* ================
    Base Elements
 ================ */
@@ -43,6 +47,19 @@ body.dark {
   --secondary-font-color: #828fa3; /* Secondary text */
   --primary-btn-color: #635fc7;    /* Buttons */
   --primary-box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Card shadow */
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark .columnHeader,
+body.dark header,
+body.dark .task-div,
+body.dark .task-div * {
+  color: var(--primary-font-color) !important;
 }
 
 /* Body */
@@ -415,6 +432,7 @@ header {
   display: inline-block;
   background-color: #49c4e5;
   margin-left: 20px;
+  margin-right: auto;
 }
 
 .tasks-container {

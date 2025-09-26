@@ -82,3 +82,5 @@ export function openTaskModal(task) {
   document.getElementById("edit-select-priority").value = task.priority; 
   modal.showModal();
 }
+
+

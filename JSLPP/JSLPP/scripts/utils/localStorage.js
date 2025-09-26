@@ -15,10 +15,10 @@ export async function loadTasksFromStorage() {
     const data = await response.json();
     localStorage.setItem("tasks", JSON.stringify(data));
 
-    priorityTasks = pullFromStorage(); // Ensure priority field is added and sorted
+    const priorityTasks = pullFromStorage(); // Ensure priority field is added and sorted
     return priorityTasks;
   } catch (error) {
-    console.error('Error fetching initial tasks from API:', error);
+    console.log('Error fetching initial tasks from API:', error);
     return [];
   }
 }
@@ -36,7 +36,7 @@ export function pullFromStorage() {
       localStorage.setItem("tasks", JSON.stringify(priorityTasks)); // Update storage with priority field
       return priorityTasks;
     } catch (err) {
-      console.error("Error retrieving tasks from localStorage:", err);
+      console.log("Error retrieving tasks from localStorage:", err);
     }
   }
 }
