@@ -1,15 +1,4 @@
 /**
- * Saves the given task array to localStorage.
- * @param {Array<Object>} tasks
- */
-export function saveTasksToStorage(tasks) {
-  console.log("Saving tasks to storage:", tasks);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-// import { initialTasks } from "../../initialData.js";
-
-/**
  * Loads tasks from localStorage or initializes with initialTasks.
  * @returns {Array<Object>} The array of tasks.
  */

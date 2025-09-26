@@ -14,7 +14,7 @@ export function addNewTask() {
 
   if (!title) return;
 
-  const Tasks = pullFromStorage();
+  const tasks = pullFromStorage();
   const newTask = {
     id: tasks.length ? Math.max(...tasks.map((t) => t.id)) + 1 : 1,
     title: title,
@@ -26,7 +26,7 @@ export function addNewTask() {
   tasks.push(newTask);
   // const updatedTasks = [...tasks, newTask];
   saveTasksToStorage(tasks);
-
+  const updatedTasks = pullFromStorage();
   clearExistingTasks();
   renderTasks(updatedTasks);
   resetForm();
@@ -56,8 +56,9 @@ export function updateExistingTask() {
   }
 
   saveTasksToStorage(tasks);
+  const updatedTasks = pullFromStorage();
 
   clearExistingTasks();
-  renderTasks(tasks);
+  renderTasks(updatedTasks);
   // dialog.close();
 }

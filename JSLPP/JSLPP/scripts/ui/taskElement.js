@@ -12,7 +12,7 @@ export function createTaskElement(task) {
   } else if (task.priority === "medium") {
     circle.style.backgroundColor = "#f5a623"; // Orange for Medium priority
   } else {
-    circle.style.backgroundColor = "#49c4e5"; // green for Low priority or default
+    circle.style.backgroundColor = "#008000"; // green for Low priority or default
   }
   taskDiv.appendChild(circle);
 
