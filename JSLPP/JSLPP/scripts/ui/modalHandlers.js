@@ -80,6 +80,7 @@ export function hideSidebar() {
   });
 }
 
+
 export function openTaskModal(task) {
   const modal = document.getElementById("task-modal");
   document.getElementById("task-id").textContent = task.id;
