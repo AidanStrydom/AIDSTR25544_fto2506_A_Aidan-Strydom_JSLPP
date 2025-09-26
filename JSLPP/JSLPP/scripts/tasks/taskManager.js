@@ -9,6 +9,7 @@ export function addNewTask() {
   const title = document.getElementById("title-input").value.trim();
   const description = document.getElementById("desc-input").value.trim();
   const status = document.getElementById("select-status").value;
+  const priority = document.getElementById("modal-select-priority").value;
   const overlay = document.querySelector(".modal-overlay");
 
   if (!title) return;
@@ -19,6 +20,7 @@ export function addNewTask() {
     title,
     description,
     status,
+    priority: priority,
   };
 
   const updatedTasks = [...tasks, newTask];

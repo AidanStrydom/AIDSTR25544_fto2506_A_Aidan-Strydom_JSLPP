@@ -286,6 +286,15 @@ header {
 /* ===============
    Task Cards
 ================ */
+.circle {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%; /* Make it circular */
+  display: inline-block;
+  background-color: #49c4e5;
+  margin-left: 20px;
+}
+
 .tasks-container {
   display: flex;
   flex-direction: column;
@@ -425,7 +434,7 @@ form select {
 
 /* New Task Modal Window */
 
-.modal-window {
+.overlay-form {
   /* border: 5px solid red; */
   display: flex;
   flex-direction: column;

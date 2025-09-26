@@ -42,7 +42,7 @@ export function setupNewTaskModalHandler() {
 }
 
 export function setupThemeToggleHandler() {
-  const toggleBtn = document.getElementById('theme-toggle-checkbox');
+  const toggleBtn = document.getElementById('theme-toggle-btn');
   const body = document.body;
 
   toggleBtn.addEventListener('click', () => {
