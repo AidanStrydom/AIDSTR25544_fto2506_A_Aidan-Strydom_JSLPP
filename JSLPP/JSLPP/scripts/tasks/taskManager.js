@@ -38,6 +38,7 @@ export function updateExistingTask() {
   const title = document.getElementById("task-title").value.trim();
   const description = document.getElementById("task-desc").value.trim();
   const status = document.getElementById("task-status").value;
+  const priority = document.getElementById("edit-select-priority").value;
   const dialog = document.querySelector("task-modal");
 
   if (!title) return;
@@ -48,7 +49,7 @@ export function updateExistingTask() {
     title: title,
     description: description,
     status: status,
-    priority: 'low', // Default priority; adjust as needed
+    priority: priority, // Default priority; adjust as needed
   };
   const taskIndex = tasks.findIndex(t => t.id === taskId);
   if (taskIndex !== -1) {

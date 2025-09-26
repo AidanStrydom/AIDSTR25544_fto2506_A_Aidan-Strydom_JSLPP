@@ -79,5 +79,6 @@ export function openTaskModal(task) {
   document.getElementById("task-title").value = task.title;
   document.getElementById("task-desc").value = task.description;
   document.getElementById("task-status").value = task.status;
+  document.getElementById("edit-select-priority").value = task.priority; 
   modal.showModal();
 }
