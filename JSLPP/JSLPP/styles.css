@@ -85,6 +85,20 @@ h4 {
   overflow: hidden; /* Prevents overflowed text/icons from showing */
 }
 
+.theme-toggle-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: auto; /* Pushes to bottom of sidebar */
+  margin-bottom: 32px;
+  margin-left: 34px;
+  margin-right: 34px;
+  border-radius: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #f4f7fd;
+}
+
 .hide-sidebar-btn {
   font-family: inherit;
   display: flex;
@@ -107,8 +121,8 @@ h4 {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 40px;
+  height: 20px;
 }
 
 /* Hide default HTML checkbox */
@@ -134,10 +148,10 @@ h4 {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 14px;
+  width: 14px;
   left: 4px;
-  bottom: 4px;
+  bottom: 3px;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
@@ -152,9 +166,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
 }
 
 /* Rounded sliders */
